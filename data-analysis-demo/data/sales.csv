@@ -1,0 +1,16 @@
+month,product,region,amount
+2026-01,Widget A,North,1200
+2026-01,Widget B,South,850
+2026-01,Widget C,East,640
+2026-02,Widget A,North,1350
+2026-02,Widget B,West,920
+2026-02,Widget C,South,710
+2026-03,Widget A,East,1500
+2026-03,Widget B,North,980
+2026-03,Widget C,West,800
+2026-04,Widget A,South,1420
+2026-04,Widget B,East,1100
+2026-04,Widget C,North,760
+2026-05,Widget A,West,1680
+2026-05,Widget B,South,1050
+2026-05,Widget C,East,890

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Andrapalli Atchyutarao — Full-Stack Developer & Power BI Developer in Pune. Python, React, FastAPI, data analysis, society management apps." />
+  <title>Andrapalli Atchyutarao | Developer & Data Analyst</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #070b14;
+      --surface: #111827;
+      --card: #1a2234;
+      --border: #2a3548;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent2: #818cf8;
+      --green: #34d399;
+      --gold: #fbbf24;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', Segoe UI, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    .bg-glow {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(56,189,248,.15), transparent),
+        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(129,140,248,.12), transparent);
+    }
+    .wrap { max-width: 1060px; margin: 0 auto; padding: 0 1.25rem 4rem; }
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.25rem 0; position: sticky; top: 0;
+      background: rgba(7,11,20,.85); backdrop-filter: blur(12px); z-index: 10;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled { border-bottom-color: var(--border); }
+    .logo { font-weight: 700; font-size: 1rem; letter-spacing: .04em; }
+    .nav-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 500; }
+    .nav-links a:hover { color: var(--accent); }
+    .hero { padding: 3.5rem 0 2.5rem; display: grid; grid-template-columns: 1.2fr .8fr; gap: 2rem; align-items: center; }
+    @media (max-width: 768px) { .hero { grid-template-columns: 1fr; } }
+    .badge {
+      display: inline-block; background: rgba(56,189,248,.12); color: var(--accent);
+      border: 1px solid rgba(56,189,248,.25); padding: .35rem .85rem; border-radius: 999px;
+      font-size: .8rem; font-weight: 600; margin-bottom: 1rem;
+    }
+    h1 { font-size: clamp(1.75rem, 4vw, 2.6rem); line-height: 1.15; margin-bottom: 1rem; }
+    h1 span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero-sub { color: var(--muted); font-size: 1.05rem; max-width: 540px; margin-bottom: 1.5rem; }
+    .hero-btns { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 1.5rem; }
+    .btn {
+      display: inline-flex; align-items: center; gap: .4rem;
+      padding: .7rem 1.25rem; border-radius: 10px; font-weight: 600; font-size: .9rem;
+      text-decoration: none; transition: transform .15s, box-shadow .15s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #0f172a; box-shadow: 0 8px 24px rgba(56,189,248,.25); }
+    .btn-outline { border: 1px solid var(--border); color: var(--text); background: var(--surface); }
+    .social { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .social a { color: var(--muted); text-decoration: none; font-size: .9rem; }
+    .social a:hover { color: var(--accent); }
+    .hero-card {
+      background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem;
+    }
+    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .stat { text-align: center; padding: 1rem; background: var(--surface); border-radius: 12px; border: 1px solid var(--border); }
+    .stat-num { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+    .stat-label { font-size: .75rem; color: var(--muted); margin-top: .25rem; }
+    section { padding: 2.5rem 0 1rem; }
+    .section-title { font-size: 1.35rem; margin-bottom: .35rem; }
+    .section-sub { color: var(--muted); margin-bottom: 1.5rem; font-size: .95rem; }
+    .skills { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .skill {
+      background: var(--surface); border: 1px solid var(--border); color: var(--text);
+      padding: .45rem .9rem; border-radius: 8px; font-size: .85rem; font-weight: 500;
+    }
+    .projects { display: grid; gap: 1.25rem; }
+    @media (min-width: 700px) { .projects { grid-template-columns: 1fr 1fr; } }
+    .project {
+      background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+      padding: 1.35rem; display: flex; flex-direction: column; transition: border-color .2s, transform .2s;
+    }
+    .project:hover { border-color: rgba(56,189,248,.4); transform: translateY(-3px); }
+    .project.featured { grid-column: 1 / -1; border-color: rgba(56,189,248,.3); background: linear-gradient(135deg, rgba(26,34,52,.9), rgba(17,24,39,.9)); }
+    .project-icon { font-size: 1.5rem; margin-bottom: .75rem; }
+    .project h3 { font-size: 1.05rem; margin-bottom: .5rem; }
+    .project p { color: var(--muted); font-size: .9rem; flex: 1; margin-bottom: 1rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+    .tag { background: rgba(56,189,248,.1); color: var(--accent); padding: .2rem .55rem; border-radius: 6px; font-size: .75rem; font-weight: 600; }
+    .link-btn { color: var(--accent); text-decoration: none; font-weight: 600; font-size: .85rem; }
+    .link-btn:hover { text-decoration: underline; }
+    .services { display: grid; gap: 1rem; }
+    @media (min-width: 640px) { .services { grid-template-columns: repeat(3, 1fr); } }
+    .service {
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem;
+    }
+    .service h3 { font-size: .95rem; margin-bottom: .5rem; }
+    .service p { color: var(--muted); font-size: .85rem; margin-bottom: .75rem; }
+    .price { color: var(--green); font-weight: 700; font-size: .85rem; }
+    .cta-box {
+      margin-top: 2rem; padding: 2rem; border-radius: 16px; text-align: center;
+      background: linear-gradient(135deg, rgba(56,189,248,.12), rgba(129,140,248,.12));
+      border: 1px solid rgba(56,189,248,.25);
+    }
+    .cta-box h2 { margin-bottom: .5rem; }
+    .cta-box p { color: var(--muted); margin-bottom: 1.25rem; }
+    footer { text-align: center; padding: 2rem 0; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <div class="bg-glow"></div>
+  <div class="wrap">
+    <nav id="nav">
+      <div class="logo">AA · Developer</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <div class="badge">Available for Freelance · Pune, India</div>
+        <h1>Hi, I'm <span>Andrapalli Atchyutarao</span></h1>
+        <p class="hero-sub">
+          Full-Stack Developer &amp; Power BI Developer. I build web platforms, society management apps,
+          Python automation, data dashboards, and Windows desktop tools — delivered on time.
+        </p>
+        <div class="hero-btns">
+          <a class="btn btn-primary" href="#contact">Hire Me</a>
+          <a class="btn btn-outline" href="https://github.com/atchyut96379" target="_blank" rel="noopener">View GitHub</a>
+          <a class="btn btn-outline" href="https://www.linkedin.com/in/atchyutaraoa" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <div class="social">
+          <a href="mailto:atchyut96379@gmail.com">atchyut96379@gmail.com</a>
+          <a href="tel:+919637945678">+91 96379 45678</a>
+          <a href="https://github.com/atchyut96379">GitHub</a>
+          <a href="https://www.linkedin.com/in/atchyutaraoa">LinkedIn</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="stat-grid">
+          <div class="stat"><div class="stat-num">12+</div><div class="stat-label">GitHub Projects</div></div>
+          <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Years Coding</div></div>
+          <div class="stat"><div class="stat-num">Full</div><div class="stat-label">Stack + Data</div></div>
+          <div class="stat"><div class="stat-num">Pune</div><div class="stat-label">India · Remote OK</div></div>
+        </div>
+      </div>
+    </header>
+
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-sub">Power BI developer turning into full-stack freelancer</p>
+      <div class="project featured" style="cursor:default">
+        <p>
+          I'm a developer based in <strong>Pune</strong> with experience in
+          <strong>Power BI</strong>, <strong>Python</strong>, <strong>React</strong>, and <strong>FastAPI</strong>.
+          I've built enterprise monitoring platforms, society gate &amp; payment systems, visitor OTP security apps,
+          and desktop software packaged as Windows executables.
+        </p>
+        <p style="margin-top:1rem;color:var(--muted)">
+          I work evenings &amp; weekends and specialize in projects for apartment societies, small businesses,
+          and startups that need reliable software — not excuses.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-sub">Technologies I use for client projects</p>
+      <div class="skills">
+        <span class="skill">Python</span>
+        <span class="skill">FastAPI</span>
+        <span class="skill">React</span>
+        <span class="skill">TypeScript</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">Power BI</span>
+        <span class="skill">SQL / T-SQL</span>
+        <span class="skill">Docker</span>
+        <span class="skill">Git &amp; GitHub</span>
+        <span class="skill">Data Analysis</span>
+        <span class="skill">Excel / CSV Automation</span>
+        <span class="skill">Tkinter Desktop Apps</span>
+        <span class="skill">C# / .NET</span>
+        <span class="skill">REST APIs</span>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-sub">Real work from my GitHub — click to explore</p>
+      <div class="projects">
+        <article class="project featured">
+          <div class="project-icon">🚀</div>
+          <h3>AIOps Platform</h3>
+          <p>Enterprise AI operations platform with FastAPI backend, React + TypeScript dashboard, Docker deployment, monitoring, incident management, AI assistant, and CI/CD.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">Docker</span></div>
+          <a class="link-btn" href="https://github.com/atchyut96379/aiops-platform" target="_blank" rel="noopener">View on GitHub →</a>
+        </article>
+        <article class="project">
+          <div class="project-icon">🏘️</div>
+          <h3>MyGate Society</h3>
+          <p>Society management — payments, gate security, resident notifications for apartment communities.</p>
+          <div class="tags"><span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">SQL</span></div>
+          <a class="link-btn" href="https://github.com/atchyut96379/MyGateSociety" target="_blank" rel="noopener">View on GitHub →</a>
+        </article>
+        <article class="project">
+          <div class="project-icon">🔐</div>
+          <h3>Gate Pass System</h3>
+          <p>Visitor OTP verification system for residential societies — admin, security, and resident roles.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">JavaScript</span></div>
+          <a class="link-btn" href="https://github.com/atchyut96379/gate-pass-system" target="_blank" rel="noopener">View on GitHub →</a>
+        </article>
+        <article class="project">
+          <div class="project-icon">🏢</div>
+          <h3>Apartment Management System</h3>
+          <p>Payments, complaint resolution, and notifications for apartment residents.</p>
+          <div class="tags"><span class="tag">C#</span><span class="tag">.NET</span></div>
+          <a class="link-btn" href="https://github.com/atchyut96379/ApartmentManagementSystem" target="_blank" rel="noopener">View on GitHub →</a>
+        </article>
+        <article class="project">
+          <div class="project-icon">💻</div>
+          <h3>Bitcoin Miner Desktop App</h3>
+          <p>Python GUI desktop app with wallet system, API integration, and PyInstaller .exe packaging.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Tkinter</span><span class="tag">PyInstaller</span></div>
+          <a class="link-btn" href="https://github.com/atchyut96379/Bitcoin-Mining" target="_blank" rel="noopener">View on GitHub →</a>
+        </article>
+        <article class="project">
+          <div class="project-icon">📊</div>
+          <h3>Sales Data Analysis</h3>
+          <p>CSV pipeline — revenue KPIs, regional breakdown, exportable business report for clients.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Data Analysis</span></div>
+          <a class="link-btn" href="https://github.com/atchyut96379/My_Portfolio/tree/main/data-analysis-demo" target="_blank" rel="noopener">View Demo →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="services">
+      <h2 class="section-title">Freelance Services</h2>
+      <p class="section-sub">What I can deliver for you</p>
+      <div class="services">
+        <div class="service">
+          <h3>🌐 Web Development</h3>
+          <p>FastAPI backends, React frontends, society/business web apps, REST APIs.</p>
+          <div class="price">From ₹3,000 / project</div>
+        </div>
+        <div class="service">
+          <h3>📊 Data &amp; Power BI</h3>
+          <p>Dashboards, CSV/Excel analysis, KPI reports, automated data pipelines.</p>
+          <div class="price">From ₹800 / report</div>
+        </div>
+        <div class="service">
+          <h3>⚙️ Python Automation</h3>
+          <p>Scripts, desktop tools, bug fixes, file/Excel automation, Windows .exe apps.</p>
+          <div class="price">From ₹500 / task</div>
+        </div>
+      </div>
+      <div class="cta-box" id="contact">
+        <h2>Let's Work Together</h2>
+        <p>Available evenings &amp; weekends · Remote worldwide · Based in Pune, India</p>
+        <p style="margin-bottom:1.25rem;font-size:1rem">
+          📧 <a href="mailto:atchyut96379@gmail.com" style="color:var(--accent);text-decoration:none">atchyut96379@gmail.com</a><br />
+          📱 <a href="tel:+919637945678" style="color:var(--accent);text-decoration:none">+91 96379 45678</a>
+        </p>
+        <div class="hero-btns" style="justify-content:center">
+          <a class="btn btn-primary" href="mailto:atchyut96379@gmail.com">Email Me</a>
+          <a class="btn btn-outline" href="https://www.linkedin.com/in/atchyutaraoa" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-outline" href="https://github.com/atchyut96379" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Andrapalli Atchyutarao · Pune, India<br />
+      <a href="mailto:atchyut96379@gmail.com" style="color:var(--accent)">atchyut96379@gmail.com</a> ·
+      <a href="tel:+919637945678" style="color:var(--accent)">+91 96379 45678</a><br />
+      <a href="https://github.com/atchyut96379" style="color:var(--accent)">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/atchyutaraoa" style="color:var(--accent)">LinkedIn</a>
+    </footer>
+  </div>
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+    });
+  </script>
+</body>
+</html>

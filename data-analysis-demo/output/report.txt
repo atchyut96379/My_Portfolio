@@ -1,0 +1,20 @@
+SALES ANALYSIS REPORT
+========================================
+Total orders:      15
+Total revenue:     $15,850.00
+Avg order value:   $1,056.67
+Top region:        North ($4,290.00)
+Top product:       Widget A ($7,150.00)
+
+Revenue by region:
+  North        $4,290.00
+  East         $4,130.00
+  South        $4,030.00
+  West         $3,400.00
+
+Revenue by month:
+  2026-01      $2,690.00
+  2026-02      $2,980.00
+  2026-03      $3,280.00
+  2026-04      $3,280.00
+  2026-05      $3,620.00
