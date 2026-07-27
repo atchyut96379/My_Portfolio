@@ -1,14 +1,21 @@
 # Fix 404 — Enable GitHub Pages (2 minutes)
 
-Your code is on GitHub. The site shows 404 because **Pages is not turned on yet**.
+Your code is on GitHub. The site shows **404** because **GitHub Pages is not enabled** on the repo yet (deploy workflows can succeed while the public URL still 404s).
 
-## Option A — Recommended (works with `My_Portfolio` repo)
+## Option A — Recommended (GitHub Actions)
 
 1. Open: https://github.com/atchyut96379/My_Portfolio/settings/pages
-2. **Build and deployment → Source:** choose **Deploy from a branch**
-3. **Branch:** select **`gh-pages`** and folder **`/ (root)`**
-4. Click **Save**
+2. **Build and deployment → Source:** choose **GitHub Actions**
+3. Save if prompted (no branch picker needed)
+4. Open **Actions** → **Deploy to GitHub Pages** → **Run workflow** (or push any commit to `main`)
 5. Wait 2–5 minutes, then open: https://atchyut96379.github.io/My_Portfolio/
+
+## Option A2 — Deploy from branch (if Actions is unavailable)
+
+1. Open: https://github.com/atchyut96379/My_Portfolio/settings/pages
+2. **Source:** **Deploy from a branch**
+3. **Branch:** **`gh-pages`** · folder **`/ (root)`**
+4. Save → wait 2–5 minutes → https://atchyut96379.github.io/My_Portfolio/
 
 ## Option B — No settings needed (cleaner URL)
 

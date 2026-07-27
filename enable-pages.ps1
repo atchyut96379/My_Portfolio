@@ -1,0 +1,10 @@
+# Opens GitHub Pages settings so you can enable the site
+Start-Process "https://github.com/atchyut96379/My_Portfolio/settings/pages"
+Write-Host ""
+Write-Host "In the browser window:"
+Write-Host "  1. Source -> GitHub Actions (recommended)"
+Write-Host "     OR: Deploy from a branch -> gh-pages -> / (root)"
+Write-Host "  2. Save, then run Actions workflow 'Deploy to GitHub Pages' if needed"
+Write-Host ""
+Write-Host "Then wait 2-5 min and open:"
+Write-Host "  https://atchyut96379.github.io/My_Portfolio/"
