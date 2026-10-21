@@ -1,330 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Andrapalli Atchyutarao — Power BI Developer, Azure & GCP Data Engineer, and Python Developer in Hyderabad and Visakhapatnam." />
-  <title>Andrapalli Atchyutarao | Power BI, Azure, GCP & Python Developer</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>A. Atchyutarao | Azure Data Engineer</title>
+  <meta name="description" content="A. Atchyutarao — Azure Data Engineer with 8+ years of IT experience in cloud data platforms, Python, SQL, orchestration, and Power BI.">
+  <meta name="theme-color" content="#0b1220">
   <style>
-    :root {
-      --bg: #070b14;
-      --surface: #111827;
-      --card: #1a2234;
-      --border: #2a3548;
-      --text: #f1f5f9;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-      --accent2: #818cf8;
-      --green: #34d399;
-      --gold: #fbbf24;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', Segoe UI, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-    }
-    .bg-glow {
-      position: fixed; inset: 0; z-index: -1; pointer-events: none;
-      background:
-        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(56,189,248,.15), transparent),
-        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(129,140,248,.12), transparent);
-    }
-    .wrap { max-width: 1060px; margin: 0 auto; padding: 0 1.25rem 4rem; }
-    .site-header {
-      position: sticky; top: 0; z-index: 10; width: 100%;
-      background: rgba(7, 11, 20, 0.92); backdrop-filter: blur(12px);
-      border-bottom: 1px solid transparent;
-    }
-    .site-header.scrolled { border-bottom-color: var(--border); }
-    .nav-inner {
-      max-width: 1060px; margin: 0 auto; padding: 1.25rem 1.25rem;
-      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
-    }
-    .logo { font-weight: 700; font-size: 1rem; letter-spacing: .02em; color: var(--text); text-decoration: none; white-space: nowrap; }
-    .logo:hover { color: var(--accent); }
-    .nav-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
-    .nav-links a { color: var(--muted); text-decoration: none; font-size: .9rem; font-weight: 500; }
-    .nav-links a:hover { color: var(--accent); }
-    .hero { padding: 3.5rem 0 2.5rem; display: grid; grid-template-columns: 1.2fr .8fr; gap: 2rem; align-items: center; }
-    @media (max-width: 768px) { .hero { grid-template-columns: 1fr; } }
-    .badge {
-      display: inline-block; background: rgba(56,189,248,.12); color: var(--accent);
-      border: 1px solid rgba(56,189,248,.25); padding: .35rem .85rem; border-radius: 999px;
-      font-size: .8rem; font-weight: 600; margin-bottom: 1rem;
-    }
-    h1 { font-size: clamp(1.75rem, 4vw, 2.6rem); line-height: 1.15; margin-bottom: 1rem; }
-    h1 span { background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .hero-sub { color: var(--muted); font-size: 1.05rem; max-width: 540px; margin-bottom: 1.5rem; }
-    .hero-btns { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 1.5rem; }
-    .btn {
-      display: inline-flex; align-items: center; gap: .4rem;
-      padding: .7rem 1.25rem; border-radius: 10px; font-weight: 600; font-size: .9rem;
-      text-decoration: none; transition: transform .15s, box-shadow .15s;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #0f172a; box-shadow: 0 8px 24px rgba(56,189,248,.25); }
-    .btn-outline { border: 1px solid var(--border); color: var(--text); background: var(--surface); }
-    .social { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .social a { color: var(--muted); text-decoration: none; font-size: .9rem; }
-    .social a:hover { color: var(--accent); }
-    .hero-card {
-      background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem;
-    }
-    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .stat { text-align: center; padding: 1rem; background: var(--surface); border-radius: 12px; border: 1px solid var(--border); }
-    .stat-num { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
-    .stat-label { font-size: .75rem; color: var(--muted); margin-top: .25rem; }
-    section { padding: 2.5rem 0 1rem; }
-    .section-title { font-size: 1.35rem; margin-bottom: .35rem; }
-    .section-sub { color: var(--muted); margin-bottom: 1.5rem; font-size: .95rem; }
-    .skills { display: flex; flex-wrap: wrap; gap: .5rem; }
-    .skill {
-      background: var(--surface); border: 1px solid var(--border); color: var(--text);
-      padding: .45rem .9rem; border-radius: 8px; font-size: .85rem; font-weight: 500;
-    }
-    .projects { display: grid; gap: 1.25rem; }
-    @media (min-width: 700px) { .projects { grid-template-columns: 1fr 1fr; } }
-    .project {
-      background: var(--card); border: 1px solid var(--border); border-radius: 16px;
-      padding: 1.35rem; display: flex; flex-direction: column; transition: border-color .2s, transform .2s;
-    }
-    .project:hover { border-color: rgba(56,189,248,.4); transform: translateY(-3px); }
-    .project.featured { grid-column: 1 / -1; border-color: rgba(56,189,248,.3); background: linear-gradient(135deg, rgba(26,34,52,.9), rgba(17,24,39,.9)); }
-    .project-icon { font-size: 1.5rem; margin-bottom: .75rem; }
-    .project h3 { font-size: 1.05rem; margin-bottom: .5rem; }
-    .project p { color: var(--muted); font-size: .9rem; flex: 1; margin-bottom: 1rem; }
-    .tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
-    .tag { background: rgba(56,189,248,.1); color: var(--accent); padding: .2rem .55rem; border-radius: 6px; font-size: .75rem; font-weight: 600; }
-    .link-btn { color: var(--accent); text-decoration: none; font-weight: 600; font-size: .85rem; }
-    .link-btn:hover { text-decoration: underline; }
-    .services { display: grid; gap: 1rem; }
-    @media (min-width: 640px) { .services { grid-template-columns: repeat(3, 1fr); } }
-    .service {
-      background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem;
-    }
-    .service h3 { font-size: .95rem; margin-bottom: .5rem; }
-    .service p { color: var(--muted); font-size: .85rem; margin-bottom: .75rem; }
-    .price { color: var(--green); font-weight: 700; font-size: .85rem; }
-    .cta-box {
-      margin-top: 2rem; padding: 2rem; border-radius: 16px; text-align: center;
-      background: linear-gradient(135deg, rgba(56,189,248,.12), rgba(129,140,248,.12));
-      border: 1px solid rgba(56,189,248,.25);
-    }
-    .cta-box h2 { margin-bottom: .5rem; }
-    .cta-box p { color: var(--muted); margin-bottom: 1.25rem; }
-    footer { text-align: center; padding: 2rem 0; color: var(--muted); font-size: .85rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+    :root{--bg:#0b1220;--panel:#121d30;--line:#29374e;--text:#eef4ff;--muted:#aab9ce;--accent:#6bdddf;--blue:#91adff}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--bg);color:var(--text);font-family:Segoe UI,Arial,sans-serif;line-height:1.65}a{color:var(--accent);text-underline-offset:4px}a:hover{color:#fff}a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:5px}button{font:inherit}.container{width:min(1100px,calc(100% - 48px));margin:auto}.skip{position:absolute;top:-100px;left:24px;background:var(--accent);color:var(--bg);padding:10px;z-index:20}.skip:focus{top:10px}
+    header{position:sticky;top:0;z-index:10;border-bottom:1px solid var(--line);background:#0b1220f5}.nav{display:flex;justify-content:space-between;align-items:center;gap:24px;min-height:78px}.brand{color:var(--text);text-decoration:none;font-weight:700;letter-spacing:-.5px}.brand span{color:var(--accent)}nav{display:flex;flex-wrap:wrap;gap:24px}nav a{font-size:14px;color:var(--muted);text-decoration:none}.hero{padding:88px 0 72px;display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:center}.eyebrow{text-transform:uppercase;letter-spacing:2px;font-size:12px;font-weight:700;color:var(--accent);margin:0 0 22px}h1{font-size:clamp(40px,5.5vw,66px);letter-spacing:-2.5px;line-height:1.08;margin:0 0 28px}h1 span{color:var(--accent)}.intro{font-size:18px;color:var(--muted);max-width:590px}.role{font-size:15px;color:var(--blue);font-weight:600}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.button{display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line);padding:11px 20px;border-radius:6px;font-weight:600;font-size:14px;text-decoration:none;color:var(--text);background:transparent;cursor:pointer}.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}.primary:hover{background:#a0f0ec;color:var(--bg)}.side{border:1px solid var(--line);background:var(--panel);padding:28px;border-radius:12px}.side h2{font-size:14px;font-weight:500;color:var(--muted);margin:0 0 26px}.workflow{display:flex;flex-direction:column;gap:0}.step{padding:17px 0;border-top:1px solid var(--line);display:flex;gap:16px}.step span{font-family:monospace;color:var(--accent);font-size:12px;padding-top:4px}.step strong{display:block;font-size:16px}.step p{margin:3px 0 0;color:var(--muted);font-size:13px}.section{padding:64px 0;border-top:1px solid var(--line)}.section-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:32px}.section-head h2{font-size:30px;letter-spacing:-1px;margin:0}.section-head p{color:var(--muted);font-size:14px;margin:0}.feature{display:grid;grid-template-columns:.75fr 1.25fr;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}.project-mark{padding:32px;background:linear-gradient(145deg,#133844,#17223d);display:flex;flex-direction:column;justify-content:space-between;min-height:300px}.project-mark .big{font-size:clamp(40px,6vw,68px);font-weight:700;letter-spacing:-3px;line-height:1.1}.project-mark small{color:var(--accent);font-size:12px;letter-spacing:1.5px;text-transform:uppercase}.project-copy{padding:32px}h3{font-size:23px;letter-spacing:-.5px;margin:0 0 12px}.project-copy p,.project-copy li{color:var(--muted);font-size:15px}.project-copy ul{padding-left:20px;margin:18px 0 24px}.project-copy li{margin-bottom:8px}.tags{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}.tag{font-size:12px;padding:4px 9px;border-radius:4px;background:#1c2e43;color:#c1d9f2}.project-link{font-size:14px;font-weight:600}.secondary{margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:22px}.tile{border:1px solid var(--line);padding:28px;border-radius:10px}.tile h3{font-size:20px}.tile p{color:var(--muted);font-size:14px}.label{font-size:11px;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}.more-projects{margin-top:32px}.more-projects h3{font-size:16px;color:var(--muted)}.project-row{display:grid;grid-template-columns:1fr 1.5fr auto;gap:24px;padding:20px 0;border-bottom:1px solid var(--line);align-items:center}.project-row strong{font-size:15px}.project-row p{margin:0;font-size:14px;color:var(--muted)}.project-row a{font-size:14px}.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}.skill-group h3{font-size:17px}.skill-group p{font-size:14px;color:var(--muted);margin:6px 0}.about{display:grid;grid-template-columns:1fr 1.5fr;gap:54px}.about h2{margin:0;font-size:30px;letter-spacing:-1px}.about p{color:var(--muted);margin:0 0 18px}.contact{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:40px;display:flex;justify-content:space-between;gap:28px;align-items:center}.contact h2{font-size:28px;margin:0 0 10px;letter-spacing:-1px}.contact p{color:var(--muted);margin:0}.contact .actions{margin-top:0}footer{padding:30px 0;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:20px}.status{font-size:13px;color:var(--accent);min-height:22px;margin-top:10px}
+    @media(max-width:800px){.hero{grid-template-columns:1fr;gap:35px;padding-top:55px}.side{max-width:100%}.feature{grid-template-columns:1fr}.project-mark{min-height:180px;gap:24px}.skills-grid{grid-template-columns:1fr 1fr}.about{grid-template-columns:1fr;gap:20px}.contact{align-items:flex-start;flex-direction:column}.section-head{display:block}.section-head p{margin-top:10px}.project-row{grid-template-columns:1fr auto;gap:8px}.project-row p{grid-column:1 / -1;grid-row:2}}
+    @media(max-width:520px){.container{width:calc(100% - 32px)}.nav{align-items:flex-start;flex-direction:column;gap:10px;padding:15px 0}nav{gap:14px}.hero{padding:40px 0}.secondary,.skills-grid{grid-template-columns:1fr}.section{padding:42px 0}.project-copy,.project-mark,.tile{padding:24px}.contact{padding:26px}h1{letter-spacing:-1.5px}footer{flex-direction:column;gap:6px}.actions .button{padding:11px 15px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+    @media print{header,.skip,.actions,.side{display:none}body{background:white;color:black}.hero,.section{padding:20px 0}.hero,.feature,.about{display:block}.project-mark{min-height:0}.project-mark .big{font-size:26px}.project-copy p,.project-copy li,.intro,.about p{color:#333}.feature,.tile,.contact{background:white;break-inside:avoid}a{color:#164d62}.container{width:100%}}
   </style>
 </head>
 <body>
-  <div class="bg-glow"></div>
-  <header class="site-header" id="nav">
-    <div class="nav-inner">
-      <a href="#about" class="logo">Atchyutarao</a>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </header>
-  <div class="wrap">
-
-    <header class="hero">
-      <div>
-        <div class="badge">Available for Freelance · Hyderabad & Visakhapatnam, India</div>
-        <h1>Hi, I'm <span>Andrapalli Atchyutarao</span></h1>
-        <p class="hero-sub">
-          Power BI Developer, Azure &amp; GCP Data Engineer, and Python Developer. I build interactive dashboards,
-          cloud data pipelines on Microsoft Azure and Google Cloud, and Python-based analytics, automation, and web applications.
-        </p>
-        <div class="hero-btns">
-          <a class="btn btn-primary" href="#contact">Hire Me</a>
-          <a class="btn btn-outline" href="https://github.com/atchyut96379" target="_blank" rel="noopener">View GitHub</a>
-          <a class="btn btn-outline" href="https://www.linkedin.com/in/atchyutaraoa" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
-        <div class="social">
-          <a href="mailto:atchyut96379@gmail.com">atchyut96379@gmail.com</a>
-          <a href="tel:+919637945678">+91 96379 45678</a>
-          <a href="https://github.com/atchyut96379">GitHub</a>
-          <a href="https://www.linkedin.com/in/atchyutaraoa">LinkedIn</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <div class="stat-grid">
-          <div class="stat"><div class="stat-num">12+</div><div class="stat-label">GitHub Projects</div></div>
-          <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Years Experience</div></div>
-          <div class="stat"><div class="stat-num">Python</div><div class="stat-label">Developer &amp; Automation</div></div>
-          <div class="stat"><div class="stat-num">HYD</div><div class="stat-label">Hyderabad &amp; Visakhapatnam</div></div>
-        </div>
-      </div>
-    </header>
-
-    <section id="about">
-      <h2 class="section-title">About Me</h2>
-      <p class="section-sub">Power BI Developer, Azure &amp; GCP Data Engineer, and Python Developer</p>
-      <div class="project featured" style="cursor:default">
-        <p>
-          I'm a <strong>Power BI Developer</strong>, <strong>Azure &amp; GCP Data Engineer</strong>, and
-          <strong>Python Developer</strong> based in <strong>Hyderabad</strong> and
-          <strong>Visakhapatnam</strong>. I design interactive Power BI dashboards, build data pipelines on
-          <strong>Microsoft Azure</strong> and <strong>Google Cloud Platform</strong>, and use <strong>Python</strong> with <strong>SQL</strong> for
-          analytics, automation, APIs, and reporting workflows that help teams make better decisions.
-        </p>
-        <p style="margin-top:1rem;color:var(--muted)">
-          Alongside data engineering, I've delivered full-stack projects including enterprise monitoring platforms,
-          society management systems, visitor security apps, and automated reporting tools. I take on freelance and
-          project-based work for businesses, apartment societies, and startups — with clear communication and reliable delivery.
-        </p>
-      </div>
+  <a class="skip" href="#main">Skip to content</a>
+  <header><div class="container nav"><a class="brand" href="#main">Atchyutarao<span>.</span></a><nav aria-label="Main navigation"><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#about">About</a><a href="#contact">Contact</a></nav></div></header>
+  <main id="main" class="container">
+    <section class="hero" aria-labelledby="intro-title">
+      <div><p class="eyebrow">Azure · Cloud data platforms · Python &amp; SQL</p><h1 id="intro-title">Andrapalli<br><span>Atchyutarao</span></h1><p class="role">Azure Data Engineer | 8+ years of IT experience</p><p class="intro">Building analytics-ready data pipelines across Azure and Google Cloud, with Python, SQL, and reliable orchestration.</p><p class="intro">Experience spans enterprise ETL/ELT, cloud migration, data quality, production support, and Power BI reporting.</p><div class="actions"><a class="button primary" href="Atchyutarao_Resume.pdf" download>Download resume (PDF) ↓</a><a class="button" href="#experience">View experience</a><a class="button" href="https://www.linkedin.com/in/atchyutaraoa" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div>
+      <aside class="side" aria-label="Work focus"><h2>Enterprise data engineering</h2><div class="workflow"><div class="step"><span>01</span><div><strong>Ingest &amp; transform</strong><p>ADF, ADLS Gen2, Databricks, PySpark, and SQL</p></div></div><div class="step"><span>02</span><div><strong>Orchestrate &amp; validate</strong><p>Dagster, Airflow, data quality, and pytest</p></div></div><div class="step"><span>03</span><div><strong>Deliver &amp; support</strong><p>CI/CD, Dev/UAT/Prod releases, and incident resolution</p></div></div></div></aside>
     </section>
 
-    <section id="skills">
-      <h2 class="section-title">Skills</h2>
-      <p class="section-sub">Technologies I use for client projects</p>
-      <div class="skills">
-        <span class="skill">Power BI</span>
-        <span class="skill">DAX &amp; Power Query</span>
-        <span class="skill">Microsoft Azure</span>
-        <span class="skill">Azure Data Factory</span>
-        <span class="skill">Azure Synapse Analytics</span>
-        <span class="skill">Azure Data Lake</span>
-        <span class="skill">Azure SQL</span>
-        <span class="skill">Google Cloud (GCP)</span>
-        <span class="skill">Data Engineering</span>
-        <span class="skill">BigQuery</span>
-        <span class="skill">SQL / T-SQL</span>
-        <span class="skill">Python Development</span>
-        <span class="skill">Data Analysis</span>
-        <span class="skill">FastAPI</span>
-        <span class="skill">React</span>
-        <span class="skill">TypeScript</span>
-        <span class="skill">JavaScript</span>
-        <span class="skill">Docker</span>
-        <span class="skill">Git &amp; GitHub</span>
-        <span class="skill">Excel / CSV Automation</span>
-        <span class="skill">REST APIs</span>
-      </div>
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="section-head"><h2 id="experience-title">Professional experience</h2><p>Enterprise data platforms, pipelines, and reporting.</p></div>
+      <article class="tile"><div class="label">Apr 2025 – Present · Senior Associate</div><h3>Cognizant Technology Solutions India</h3><p><strong>Mortgage risk &amp; hedging analytics · Jan 2026 – Present</strong></p><p>Develop and support Python/Dagster asset-based pipelines within an orchestration platform covering 50+ analytics jobs. Work includes market-data ingestion, SQL Server integration, hybrid AWS EKS and Windows execution, fixture-based pytest tests, release validation, and production stabilization.</p><p><strong>People Platform &amp; ESG · Apr – Dec 2025</strong></p><p>Developed and supported Azure ingestion and ETL/ELT workflows using ADF, ADLS Gen2, Databricks, PySpark, Delta Lake, and Azure SQL. Collaborated on data quality, troubleshooting, and downstream reporting.</p><div class="tags"><span class="tag">Azure</span><span class="tag">Dagster</span><span class="tag">Python</span><span class="tag">PySpark</span><span class="tag">CI/CD</span></div></article>
+      <div class="secondary"><article class="tile"><div class="label">Jan 2023 – Mar 2025</div><h3>Hexagon R&amp;D India</h3><p><strong>Senior Software Developer · Data Engineering</strong></p><p>Built and maintained Python, PySpark, and SQL workflows for mining operational data. Worked with BigQuery, Cloud Storage, Dataproc, and Airflow on cloud migration, validation, reconciliation, and production support.</p></article><article class="tile"><div class="label">Apr 2022 – Jan 2023</div><h3>Smartek21</h3><p><strong>Senior Software Engineer · Data &amp; Power BI</strong></p><p>Developed ingestion and transformation workflows for telecom reporting, BigQuery models, and Power BI dashboards with DAX. Worked on Airflow scheduling, incremental loads, dataset refresh, and row-level security.</p></article></div>
+      <article class="tile" style="margin-top:22px"><div class="label">Mar 2018 – Apr 2022</div><h3>Cureus Technologies</h3><p><strong>Software Engineer · Power BI, SQL Reporting &amp; Production Support</strong></p><p>Built dashboards and reporting datasets, validated reports, and supported SQL Server troubleshooting, monitoring, incident response, change management, and root-cause analysis.</p></article>
     </section>
-
-    <section id="projects">
-      <h2 class="section-title">Featured Projects</h2>
-      <p class="section-sub">Real work from my GitHub — click to explore</p>
-      <div class="projects">
-        <article class="project featured">
-          <div class="project-icon">📈</div>
-          <h3>Retail Sales Analytics – Power BI</h3>
-          <p>End-to-end retail BI dashboard: six report pages (Executive Overview, Sales, Store &amp; Payment, Customer, Product, Payment), KPIs, DAX calculated columns, monthly trends, category and date-range slicers, and cross-filtering across sales, inventory, and payments.</p>
-          <div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Data Modeling</span><span class="tag">Business Intelligence</span></div>
-          <a class="link-btn" href="https://github.com/atchyut96379/My_Portfolio/tree/main/retail-sales-analytics-powerbi" target="_blank" rel="noopener">View Project &amp; Documentation →</a>
-        </article>
-        <article class="project featured">
-          <div class="project-icon">🚀</div>
-          <h3>AIOps Platform</h3>
-          <p>Enterprise AI operations platform with FastAPI backend, React + TypeScript dashboard, Docker deployment, monitoring, incident management, AI assistant, and CI/CD.</p>
-          <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">Docker</span></div>
-          <a class="link-btn" href="https://github.com/atchyut96379/aiops-platform" target="_blank" rel="noopener">View on GitHub →</a>
-        </article>
-        <article class="project">
-          <div class="project-icon">🏘️</div>
-          <h3>MyGate Society</h3>
-          <p>Society management — payments, gate security, resident notifications for apartment communities.</p>
-          <div class="tags"><span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">SQL</span></div>
-          <a class="link-btn" href="https://github.com/atchyut96379/MyGateSociety" target="_blank" rel="noopener">View on GitHub →</a>
-        </article>
-        <article class="project">
-          <div class="project-icon">🔐</div>
-          <h3>Gate Pass System</h3>
-          <p>Visitor OTP verification system for residential societies — admin, security, and resident roles.</p>
-          <div class="tags"><span class="tag">Python</span><span class="tag">JavaScript</span></div>
-          <a class="link-btn" href="https://github.com/atchyut96379/gate-pass-system" target="_blank" rel="noopener">View on GitHub →</a>
-        </article>
-        <article class="project">
-          <div class="project-icon">🏢</div>
-          <h3>Apartment Management System</h3>
-          <p>Payments, complaint resolution, and notifications for apartment residents.</p>
-          <div class="tags"><span class="tag">C#</span><span class="tag">.NET</span></div>
-          <a class="link-btn" href="https://github.com/atchyut96379/ApartmentManagementSystem" target="_blank" rel="noopener">View on GitHub →</a>
-        </article>
-        <article class="project">
-          <div class="project-icon">💻</div>
-          <h3>Bitcoin Miner Desktop App</h3>
-          <p>Python GUI desktop app with wallet system, API integration, and PyInstaller .exe packaging.</p>
-          <div class="tags"><span class="tag">Python</span><span class="tag">Tkinter</span><span class="tag">PyInstaller</span></div>
-          <a class="link-btn" href="https://github.com/atchyut96379/Bitcoin-Mining" target="_blank" rel="noopener">View on GitHub →</a>
-        </article>
-        <article class="project">
-          <div class="project-icon">📊</div>
-          <h3>Sales Data Analysis</h3>
-          <p>CSV pipeline — revenue KPIs, regional breakdown, exportable business report for clients.</p>
-          <div class="tags"><span class="tag">Python</span><span class="tag">Data Analysis</span></div>
-          <a class="link-btn" href="https://github.com/atchyut96379/My_Portfolio/tree/main/data-analysis-demo" target="_blank" rel="noopener">View Demo →</a>
-        </article>
-      </div>
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="section-head"><h2 id="projects-title">Personal portfolio projects</h2><p>Explore the documentation and source code.</p></div>
+      <article class="feature"><div class="project-mark"><small>Featured / Business intelligence</small><div class="big">Retail.<br>In focus.</div><small>Power BI · Six analytical pages</small></div><div class="project-copy"><h3>Retail Sales Analytics</h3><p>A documented Power BI solution that brings sales, customers, products, stores, inventory, and payment analysis into one reporting experience.</p><ul><li>Executive KPIs for revenue, orders, customers, and quantity sold.</li><li>Daily and monthly trends, product rankings, and store performance views.</li><li>Category and date slicers, cross-filtering, Top-N filters, and calculated columns.</li></ul><div class="tags"><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Data modeling</span><span class="tag">Retail analytics</span></div><a class="project-link" href="https://github.com/atchyut96379/My_Portfolio/tree/main/retail-sales-analytics-powerbi" target="_blank" rel="noopener noreferrer">Explore project documentation ↗</a></div></article>
+      <div class="secondary"><article class="tile"><div class="label">Python / Reporting</div><h3>Sales Data Analysis</h3><p>A CSV analysis workflow that calculates revenue, order count, average order value, and leading regions and products.</p><p>Groups sales by region, product, and month, then exports a text report and an optional Matplotlib chart.</p><div class="tags"><span class="tag">Python</span><span class="tag">CSV</span><span class="tag">Matplotlib</span></div><a class="project-link" href="https://github.com/atchyut96379/My_Portfolio/tree/main/data-analysis-demo" target="_blank" rel="noopener noreferrer">View source and sample output ↗</a></article><article class="tile"><div class="label">Application development</div><h3>AIOps Platform</h3><p>An operations platform project bringing together a Python API, a React dashboard, and containerized deployment.</p><p>Explore the repository for its monitoring, incident management, and AI assistant features.</p><div class="tags"><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Docker</span></div><a class="project-link" href="https://github.com/atchyut96379/aiops-platform" target="_blank" rel="noopener noreferrer">Explore repository ↗</a></article></div>
+      <div class="more-projects"><h3>More application projects</h3><div class="project-row"><strong>MyGate Society</strong><p>Society payments, gate security, and resident notifications.</p><a href="https://github.com/atchyut96379/MyGateSociety" target="_blank" rel="noopener noreferrer" aria-label="MyGate Society repository">Code ↗</a></div><div class="project-row"><strong>Gate Pass System</strong><p>Visitor OTP verification with admin, security, and resident roles.</p><a href="https://github.com/atchyut96379/gate-pass-system" target="_blank" rel="noopener noreferrer" aria-label="Gate Pass System repository">Code ↗</a></div><div class="project-row"><strong>Apartment Management</strong><p>A C# / .NET project for payments, complaints, and notifications.</p><a href="https://github.com/atchyut96379/ApartmentManagementSystem" target="_blank" rel="noopener noreferrer" aria-label="Apartment Management repository">Code ↗</a></div></div>
     </section>
-
-    <section id="services">
-      <h2 class="section-title">Freelance Services</h2>
-      <p class="section-sub">What I can deliver for you</p>
-      <div class="services">
-        <div class="service">
-          <h3>🌐 Web Development</h3>
-          <p>FastAPI backends, React frontends, society/business web apps, REST APIs.</p>
-          <div class="price">From ₹3,000 / project</div>
-        </div>
-        <div class="service">
-          <h3>📊 Power BI &amp; Analytics</h3>
-          <p>Interactive dashboards, KPI reports, DAX measures, and business intelligence for decision-makers.</p>
-          <div class="price">From ₹800 / report</div>
-        </div>
-        <div class="service">
-          <h3>☁️ Azure Data Engineering</h3>
-          <p>Azure Data Factory pipelines, Synapse, Data Lake, Azure SQL, ETL/ELT, and analytics workloads on Microsoft Azure.</p>
-          <div class="price">From ₹2,000 / project</div>
-        </div>
-        <div class="service">
-          <h3>☁️ GCP Data Engineering</h3>
-          <p>Cloud data pipelines, BigQuery, ETL workflows, and analytics solutions on Google Cloud Platform.</p>
-          <div class="price">From ₹2,000 / project</div>
-        </div>
-        <div class="service">
-          <h3>🐍 Python Development</h3>
-          <p>Scripts, APIs, FastAPI backends, data automation, Excel/CSV tools, and desktop applications.</p>
-          <div class="price">From ₹500 / task</div>
-        </div>
-      </div>
-      <div class="cta-box" id="contact">
-        <h2>Let's Work Together</h2>
-        <p>Available evenings &amp; weekends · Remote worldwide · Hyderabad &amp; Visakhapatnam, India</p>
-        <p style="margin-bottom:1.25rem;font-size:1rem">
-          📧 <a href="mailto:atchyut96379@gmail.com" style="color:var(--accent);text-decoration:none">atchyut96379@gmail.com</a><br />
-          📱 <a href="tel:+919637945678" style="color:var(--accent);text-decoration:none">+91 96379 45678</a>
-        </p>
-        <div class="hero-btns" style="justify-content:center">
-          <a class="btn btn-primary" href="mailto:atchyut96379@gmail.com">Email Me</a>
-          <a class="btn btn-outline" href="https://www.linkedin.com/in/atchyutaraoa" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn btn-outline" href="https://github.com/atchyut96379" target="_blank" rel="noopener">GitHub</a>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      © 2026 Andrapalli Atchyutarao · Hyderabad & Visakhapatnam, India<br />
-      <a href="mailto:atchyut96379@gmail.com" style="color:var(--accent)">atchyut96379@gmail.com</a> ·
-      <a href="tel:+919637945678" style="color:var(--accent)">+91 96379 45678</a><br />
-      <a href="https://github.com/atchyut96379" style="color:var(--accent)">GitHub</a> ·
-      <a href="https://www.linkedin.com/in/atchyutaraoa" style="color:var(--accent)">LinkedIn</a>
-    </footer>
-  </div>
+    <section class="section" id="skills" aria-labelledby="skills-title"><div class="section-head"><h2 id="skills-title">Technical toolkit</h2><p>Cloud engineering, orchestration, and analytics.</p></div><div class="skills-grid"><div class="skill-group"><h3>Azure data platforms</h3><p>Azure Data Factory · ADLS Gen2</p><p>Azure Databricks · Azure SQL</p><p>PySpark · Delta Lake · ETL/ELT</p></div><div class="skill-group"><h3>Cloud &amp; orchestration</h3><p>BigQuery · Cloud Storage · Dataproc</p><p>Dagster · Airflow · Cloud Composer</p><p>Astronomer · AWS EKS</p></div><div class="skill-group"><h3>Engineering &amp; analytics</h3><p>Python · SQL/T-SQL · Polars · DuckDB</p><p>Power BI · DAX · SQL Server · SSIS/SSRS</p><p>Azure DevOps · Docker · Kubernetes</p><p>Helm · pytest · Pydantic · Git</p></div></div></section>
+    <section class="section about" id="about" aria-labelledby="about-title"><div><p class="eyebrow">A little about me</p><h2 id="about-title">Cloud data.<br>Reliable delivery.</h2></div><div><p>I'm A. Atchyutarao, a Data Engineer with 8+ years of IT experience across enterprise ETL/ELT, Azure and GCP platforms, Python and SQL engineering, orchestration, and reporting.</p><p>My experience includes analytics-ready pipelines, cloud migration, data quality, production incident resolution, and releases across development, UAT, and production. My personal projects below complement that professional work with public source code and documentation.</p><p>I hold a B.Tech from Jawaharlal Nehru Technological University, Kakinada. Professional development includes Google Cloud Professional Data Engineer (listed validity 2025–2027) and Data Science and Machine Learning training through Scaler Academy.</p></div></section>
+    <section class="section" id="contact" aria-labelledby="contact-title"><div class="contact"><div><p class="eyebrow">Let's connect</p><h2 id="contact-title">Have a role or project in mind?</h2><p><a href="mailto:atchyut2025@gmail.com">atchyut2025@gmail.com</a></p><p><a href="tel:+919959469644">+91 9959469644</a></p><div id="copy-status" class="status" role="status" aria-live="polite"></div></div><div class="actions"><a class="button primary" href="mailto:atchyut2025@gmail.com">Email me ↗</a><button class="button" id="copy-email" type="button">Copy email</button><a class="button" href="https://github.com/atchyut96379" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div></section>
+  </main>
+  <footer class="container"><span>© 2026 Andrapalli Atchyutarao</span><span><a href="https://www.linkedin.com/in/atchyutaraoa" target="_blank" rel="noopener noreferrer">LinkedIn</a> · <a href="https://github.com/atchyut96379/My_Portfolio" target="_blank" rel="noopener noreferrer">Portfolio source</a></span></footer>
   <script>
-    window.addEventListener('scroll', () => {
-      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+    document.getElementById('copy-email').addEventListener('click', async () => {
+      const status = document.getElementById('copy-status');
+      try { await navigator.clipboard.writeText('atchyut2025@gmail.com'); status.textContent = 'Email copied to clipboard.'; }
+      catch { status.textContent = 'Please copy: atchyut2025@gmail.com'; }
     });
   </script>
 </body>
